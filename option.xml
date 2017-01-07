@@ -12,13 +12,15 @@
 		<options>
 			<option name="woltlab_vendor_id">
 				<categoryname>general.api.woltlabVendor</categoryname>
-				<optiontype>text</optiontype>
 				<defaultvalue></defaultvalue>
+				<inputClass>tiny</inputClass>
+				<optiontype>text</optiontype>
 			</option>
 			<option name="woltlab_vendor_api_key">
 				<categoryname>general.api.woltlabVendor</categoryname>
-				<optiontype>text</optiontype>
 				<defaultvalue></defaultvalue>
+				<inputClass>medium</inputClass>
+				<optiontype>text</optiontype>
 			</option>
 		</options>
 	</import>
