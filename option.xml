@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/option.xsd">
+	<import>
+		<categories>
+			<category name="general.api">
+				<parent>general</parent>
+			</category>
+				<category name="general.api.woltlabVendor">
+					<parent>general.api</parent>
+				</category>
+		</categories>
+		<options>
+			<option name="woltlab_vendor_id">
+				<categoryname>general.api.woltlabVendor</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+			<option name="woltlab_vendor_api_key">
+				<categoryname>general.api.woltlabVendor</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+		</options>
+	</import>
+</data>

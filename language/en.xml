@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/language.xsd" languagecode="en">
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.general.api"><![CDATA[API Interfaces]]></item>
+		<item name="wcf.acp.option.category.general.api.woltlabVendor"><![CDATA[WoltLab GmbH – Vendor Area]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_id"><![CDATA[Vendor ID]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Enter your <code class="inlineCode">vendorID</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://www.woltlab.com/pluginstore/index.php/VendorTransactionList/"|rawurlencode}" class="externalURL">Vendor Area</a>.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_api_key"><![CDATA[Vendor API–Key]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Enter your <code class="inlineCode">apiKey</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://www.woltlab.com/pluginstore/index.php/VendorTransactionList/"|rawurlencode}" class="externalURL">Vendor Area</a>.]]></item>
+	</category>
+</language>

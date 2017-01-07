@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="com.kittmedia.wcf.woltlabapi" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/package.xsd">
+	<packageinformation>
+		<packagename>WoltLab Vendor API</packagename>
+		<packagedescription><![CDATA[]]></packagedescription>
+		<version>1.2.0</version>
+		<date>2017-01-07</date>
+	</packageinformation>
+	
+	<authorinformation>
+		<author><![CDATA[KittMedia]]></author>
+		<authorurl>http://kittmedia.com</authorurl>
+	</authorinformation>
+	
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
+	</requiredpackages>
+	
+	<excludedpackages>
+		<excludedpackage version="3.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+	</excludedpackages>
+	
+	<instructions type="install">
+		<!-- configuration -->
+		<instruction type="language">language/*.xml</instruction>
+		<instruction type="option">option.xml</instruction>
+		
+		<!-- files -->
+		<instruction type="file">files.tar</instruction>
+	</instructions>
+</package>
