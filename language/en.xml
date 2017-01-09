@@ -2,11 +2,20 @@
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/language.xsd" languagecode="en">
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.general.api"><![CDATA[API Interfaces]]></item>
+		<item name="wcf.acp.option.category.general.api.woltlabPluginStore"><![CDATA[WoltLab® GmbH – Plugin–Store]]></item>
+		<item name="wcf.acp.option.category.general.api.woltlabPluginStore.description"><![CDATA[In order to enable the automatic matching of your own products, you must enter your own "WoltLab–ID" and your own "API-Key". The corresponding data can be found in the section <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://woltlab.com/api-management/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">API-Access</a> at WoltLab®.]]></item>
 		<item name="wcf.acp.option.category.general.api.woltlabVendor"><![CDATA[WoltLab® GmbH – Vendor Management]]></item>
+		<item name="wcf.acp.option.woltlab_api_key"><![CDATA[API-Key]]></item>
+		<item name="wcf.acp.option.woltlab_id"><![CDATA[WoltLab-ID]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_de"><![CDATA[ID of the German language]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_de.description"><![CDATA[Enter the so-called <code class="inlineCode">languageID</code> of the German interface language at woltlab.com. This is used to retrieve localized names for the matched products.]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_en"><![CDATA[ID of the English language]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_en.description"><![CDATA[Enter the so-called <code class="inlineCode">languageID</code> of the English interface language at woltlab.com. This is used to retrieve localized names for the matched products.]]></item>
+		<item name="wcf.acp.option.woltlab_plugin_store_url_scheme"><![CDATA[Plugin–Store – URL–Scheme]]></item>
 		<item name="wcf.acp.option.woltlab_vendor_id"><![CDATA[Vendor ID]]></item>
-		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Enter your <code class="inlineCode">vendorID</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}" class="externalURL">Vendor Management</a>.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Enter your <code class="inlineCode">vendorID</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Vendor Management</a>.]]></item>
 		<item name="wcf.acp.option.woltlab_vendor_api_key"><![CDATA[Vendor API–Key]]></item>
-		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Enter your <code class="inlineCode">apiKey</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}" class="externalURL">Vendor Management</a>.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Enter your <code class="inlineCode">apiKey</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Vendor Management</a>.]]></item>
 	</category>
 	
 	<catetegory name="wcf.global.form">
@@ -15,4 +24,7 @@
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID"><![CDATA[WoltLab-ID]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Enter your <code class="inlineCode">WoltLab-ID</code>, that you can retrieve under <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a>.]]></item>
 	</catetegory>
+	
+	<!-- i18n category -->
+	<category name="wcf.woltlabapi"></category>
 </language>

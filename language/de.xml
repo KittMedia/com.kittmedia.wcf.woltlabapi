@@ -2,11 +2,20 @@
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/language.xsd" languagecode="de">
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.general.api"><![CDATA[API–Schnittstellen]]></item>
+		<item name="wcf.acp.option.category.general.api.woltlabPluginStore"><![CDATA[WoltLab® GmbH – Plugin–Store]]></item>
+		<item name="wcf.acp.option.category.general.api.woltlabPluginStore.description"><![CDATA[Um den automatischen Abgleich Ihrer eigenen Produkte zu ermöglichen ist die Angabe der eigenen „WoltLab-ID” sowie des eigenen „API-Key” notwendig. Die entsprechenden Daten finden Sie im Bereich <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://woltlab.com/api-management/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">API-Zugriff</a> bei WoltLab®.]]></item>
 		<item name="wcf.acp.option.category.general.api.woltlabVendor"><![CDATA[WoltLab® GmbH – Händler-Bereich]]></item>
+		<item name="wcf.acp.option.woltlab_api_key"><![CDATA[API-Key]]></item>
+		<item name="wcf.acp.option.woltlab_id"><![CDATA[WoltLab-ID]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_de"><![CDATA[ID der deutschen Sprache]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_de.description"><![CDATA[Geben Sie die sogenannte <code class="inlineCode">languageID</code> der deutschen Sprache von woltlab.com ein. Diese wird genutzt, um lokalisierte Namen für die abgeglichenen Produkte abzurufen.]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_en"><![CDATA[ID der englischen Sprache]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_en.description"><![CDATA[Geben Sie die sogenannte <code class="inlineCode">languageID</code> der englischen Sprache von woltlab.com ein. Diese wird genutzt, um lokalisierte Namen für die abgeglichenen Produkte abzurufen.]]></item>
+		<item name="wcf.acp.option.woltlab_plugin_store_url_scheme"><![CDATA[Plugin–Store – URL–Schema]]></item>
 		<item name="wcf.acp.option.woltlab_vendor_id"><![CDATA[Vendor ID]]></item>
-		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Bitte geben Sie hier Ihre <code class="inlineCode">vendorID</code> ein, welche Sie im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}" class="externalURL">Händler-Bereich</a> einsehen können.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Bitte geben Sie hier Ihre <code class="inlineCode">vendorID</code> ein, welche Sie im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Händler-Bereich</a> einsehen können.]]></item>
 		<item name="wcf.acp.option.woltlab_vendor_api_key"><![CDATA[Vendor API–Key]]></item>
-		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Bitte geben Sie hier Ihren <code class="inlineCode">apiKey</code> ein, welchen Sie im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}" class="externalURL">Händler-Bereich</a> einsehen können.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Bitte geben Sie hier Ihren <code class="inlineCode">apiKey</code> ein, welchen Sie im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Händler-Bereich</a> einsehen können.]]></item>
 	</category>
 	
 	<catetegory name="wcf.global.form">
@@ -15,4 +24,7 @@
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID"><![CDATA[WoltLab-ID]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Bitte geben Sie ihre <code class="inlineCode">WoltLab-ID</code> ein, welche Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
 	</catetegory>
+	
+	<!-- i18n category -->
+	<category name="wcf.woltlabapi"></category>
 </language>

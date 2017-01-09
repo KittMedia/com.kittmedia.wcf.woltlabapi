@@ -83,6 +83,18 @@ class WoltLabVendorAPI extends SingletonFactory {
 	}
 	
 	/**
+	 * Returns a list of all own plugin store file ids.
+	 * @return	array<integer>
+	 */
+	public function getOwnPluginStoreFileIDs() {
+		if (!empty(WOLTLAB_ID) && !empty(WOLTLAB_API_KEY)) {
+			return $this->getPurchasedPluginStoreFileIDsByUser(WOLTLAB_ID, WOLTLAB_API_KEY);
+		}
+		
+		return array();
+	}
+	
+	/**
 	 * Returns a list of the purchased plugin store file ids
 	 * of the WoltLab user with the given credentials.
 	 * @param	integer		$woltlabID

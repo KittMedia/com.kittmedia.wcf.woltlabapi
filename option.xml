@@ -8,6 +8,9 @@
 				<category name="general.api.woltlabVendor">
 					<parent>general.api</parent>
 				</category>
+				<category name="general.api.woltlabPluginStore">
+					<parent>general.api</parent>
+				</category>
 		</categories>
 		<options>
 			<option name="woltlab_vendor_id">
@@ -20,6 +23,38 @@
 				<categoryname>general.api.woltlabVendor</categoryname>
 				<defaultvalue></defaultvalue>
 				<inputClass>medium</inputClass>
+				<optiontype>text</optiontype>
+			</option>
+			
+			<option name="woltlab_id">
+				<categoryname>general.api.woltlabPluginStore</categoryname>
+				<defaultvalue></defaultvalue>
+				<inputClass>tiny</inputClass>
+				<optiontype>text</optiontype>
+			</option>
+			<option name="woltlab_api_key">
+				<categoryname>general.api.woltlabPluginStore</categoryname>
+				<defaultvalue></defaultvalue>
+				<inputClass>medium</inputClass>
+				<optiontype>text</optiontype>
+			</option>
+			<option name="woltlab_interface_language_id_de">
+				<categoryname>general.api.woltlabPluginStore</categoryname>
+				<defaultvalue>1</defaultvalue>
+				<hidden>1</hidden>
+				<minvalue>1</minvalue>
+				<optiontype>integer</optiontype>
+			</option>
+			<option name="woltlab_interface_language_id_en">
+				<categoryname>general.api.woltlabPluginStore</categoryname>
+				<defaultvalue>2</defaultvalue>
+				<hidden>1</hidden>
+				<minvalue>1</minvalue>
+				<optiontype>integer</optiontype>
+			</option>
+			<option name="woltlab_plugin_store_url_scheme">
+				<categoryname>general.api.woltlabPluginStore</categoryname>
+				<defaultvalue>https://pluginstore.woltlab.com/file/{$fileID}/?l={$languageID}</defaultvalue>
 				<optiontype>text</optiontype>
 			</option>
 		</options>
