@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/language.xsd" languagecode="en">
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.content.woltlabVendorAPI"><![CDATA[WoltLab® GmbH – Vendor Management]]></item>
+		<item name="wcf.acp.menu.link.content.woltlabVendorAPI.pluginstoreFileList"><![CDATA[Plugin–Store – Own Products]]></item>
+	</category>
+	
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.general.api"><![CDATA[API Interfaces]]></item>
 		<item name="wcf.acp.option.category.general.api.woltlabPluginStore"><![CDATA[WoltLab® GmbH – Plugin–Store]]></item>
@@ -27,4 +32,13 @@
 	
 	<!-- i18n category -->
 	<category name="wcf.woltlabapi"></category>
+	
+	<category name="wcf.woltlabapi.pluginstore">
+		<item name="wcf.woltlabapi.pluginstore.file.edit"><![CDATA[Edit Own Product]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.isDisabled"><![CDATA[Disable Product]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.isDisabled.description"><![CDATA[Please note that this product is not disabled in the Plugin–Store.]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.lastNameUpdateTime"><![CDATA[Last match]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.name"><![CDATA[Name]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.name.description"><![CDATA[Enter the name for the product. Please note that this will be overwritten while matching the data from the Plugin–Store. Therefore, it is recommended to change the name <a href="https://pluginstore.woltlab.com/file-edit/{$file->getObjectID()}/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">at the Plugin–Store</a>.]]></item>
+	</category>
 </language>

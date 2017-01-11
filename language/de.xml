@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/language.xsd" languagecode="de">
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.content.woltlabVendorAPI"><![CDATA[WoltLab® GmbH – Händler-Schnittstelle]]></item>
+		<item name="wcf.acp.menu.link.content.woltlabVendorAPI.pluginstoreFileList"><![CDATA[Plugin–Store – Eigene Produkte]]></item>
+	</category>
+	
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.general.api"><![CDATA[API–Schnittstellen]]></item>
 		<item name="wcf.acp.option.category.general.api.woltlabPluginStore"><![CDATA[WoltLab® GmbH – Plugin–Store]]></item>
@@ -27,4 +32,13 @@
 	
 	<!-- i18n category -->
 	<category name="wcf.woltlabapi"></category>
+	
+	<category name="wcf.woltlabapi.pluginstore">
+		<item name="wcf.woltlabapi.pluginstore.file.edit"><![CDATA[Eigenes Produkt bearbeiten]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.isDisabled"><![CDATA[Produkt deaktivieren]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.isDisabled.description"><![CDATA[Bitte beachten Sie, dass das Produkt durch Aktivierung dieser Option nicht im Plugin–Store deaktiviert wird.]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.lastNameUpdateTime"><![CDATA[Letzter Abgleich]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.name"><![CDATA[Name]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.name.description"><![CDATA[Geben Sie hier den Namen für das Produkt an. Bitte beachten Sie, dass dieser bei dem nächsten Abgleich mit dem Plugin–Store wieder überschrieben wird. Daher wird empfohlen, den Namen <a href="https://pluginstore.woltlab.com/file-edit/{$file->getObjectID()}/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">direkt im Plugin–Store zu ändern</a>.]]></item>
+	</category>
 </language>
