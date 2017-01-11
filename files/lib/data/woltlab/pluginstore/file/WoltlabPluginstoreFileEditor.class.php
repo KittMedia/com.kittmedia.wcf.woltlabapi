@@ -10,7 +10,7 @@ use wcf\data\DatabaseObjectEditor;
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
-class WoltLabPluginstoreFileEditor extends DatabaseObjectEditor {
+class WoltlabPluginstoreFileEditor extends DatabaseObjectEditor {
 	/**
 	 * @see		wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

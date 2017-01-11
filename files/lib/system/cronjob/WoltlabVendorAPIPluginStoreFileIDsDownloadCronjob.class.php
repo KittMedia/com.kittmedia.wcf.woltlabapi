@@ -1,10 +1,10 @@
 <?php
 namespace wcf\system\cronjob;
 use wcf\data\cronjob\Cronjob;
-use wcf\data\woltlab\pluginstore\file\WoltLabPluginstoreFileAction;
-use wcf\data\woltlab\pluginstore\file\WoltLabPluginstoreFileList;
+use wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileAction;
+use wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList;
 use wcf\system\cronjob\AbstractCronjob;
-use wcf\system\api\woltlab\vendor\WoltLabVendorAPI;
+use wcf\system\api\woltlab\vendor\WoltlabVendorAPI;
 use wcf\system\exception\HTTPServerErrorException;
 
 /**
@@ -18,10 +18,10 @@ use wcf\system\exception\HTTPServerErrorException;
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
-class WoltLabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob {
+class WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob {
 	/**
 	 * List of current files
-	 * @var		wcf\data\woltlab\pluginstore\file\WoltLabPluginstoreFileList
+	 * @var		wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList
 	 */
 	public $fileList = null;
 	
@@ -36,11 +36,11 @@ class WoltLabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 		}
 		
 		// read current files from database
-		$this->fileList = new WoltLabPluginstoreFileList();
+		$this->fileList = new WoltlabPluginstoreFileList();
 		$this->fileList->readObjects();
 		
 		// get own file ids from api
-		$ownFileIDs = WoltLabVendorAPI::getInstance()->getOwnPluginStoreFileIDs();
+		$ownFileIDs = WoltlabVendorAPI::getInstance()->getOwnPluginStoreFileIDs();
 		
 		// get new file ids
 		$newFileIDs = array_diff(
@@ -52,7 +52,7 @@ class WoltLabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 			$fetchLocalizedTitles = true;
 			foreach ($newFileIDs as $fileID) {
 				try {
-					$fileAction = new WoltLabPluginstoreFileAction(array(), 'create', array(
+					$fileAction = new WoltlabPluginstoreFileAction(array(), 'create', array(
 						'data' => array(
 							'fileID' => $fileID,
 							'name' => 'wcf.woltlabapi.file'.$fileID

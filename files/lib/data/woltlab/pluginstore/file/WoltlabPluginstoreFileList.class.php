@@ -10,4 +10,4 @@ use wcf\data\DatabaseObjectList;
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
-class WoltLabPluginstoreFileList extends DatabaseObjectList {}
+class WoltlabPluginstoreFileList extends DatabaseObjectList {}

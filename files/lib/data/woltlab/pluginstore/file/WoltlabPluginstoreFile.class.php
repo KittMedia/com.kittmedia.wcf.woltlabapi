@@ -10,7 +10,7 @@ use wcf\data\DatabaseObject;
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
-class WoltLabPluginstoreFile extends DatabaseObject {
+class WoltlabPluginstoreFile extends DatabaseObject {
 	/**
 	 * @see		wcf\data\DatabaseObject:$databaseTableName
 	 */

@@ -15,7 +15,7 @@ use wcf\system\WCF;
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
-class WoltLabPluginstoreFileAction extends AbstractDatabaseObjectAction {
+class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see		wcf\data\AbstractDatabaseObjectAction::$className
 	 */
@@ -32,7 +32,7 @@ class WoltLabPluginstoreFileAction extends AbstractDatabaseObjectAction {
 			$fileAction->executeAction();
 			
 			// reload
-			$file = new WoltLabPluginstoreFile($file->getObjectID());
+			$file = new WoltlabPluginstoreFile($file->getObjectID());
 		}
 		
 		return $file;

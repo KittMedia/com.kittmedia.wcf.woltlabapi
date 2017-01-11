@@ -2,7 +2,7 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/cronjob.xsd">
 	<import>
 		<cronjob>
-			<classname><![CDATA[wcf\system\cronjob\WoltLabVendorAPIPluginStoreFileIDsDownloadCronjob]]></classname>
+			<classname><![CDATA[wcf\system\cronjob\WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob]]></classname>
 			<description><![CDATA[Matches the local WoltLab Plugin–Store list with the remote WoltLab Plugin–Store.]]></description>
 			<description language="de"><![CDATA[Gleicht die lokale WoltLab Plugin-Store Liste mit dem Plugin–Store ab.]]></description>
 			<startminute>0</startminute>
