@@ -5,6 +5,7 @@ use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\language\I18nHandler;
 use wcf\system\language\LanguageFactory;
 use wcf\util\HTTPRequest;
+use wcf\system\WCF;
 
 /**
  * Provides actions for woltlab pluginstore files.
@@ -115,10 +116,16 @@ class WoltLabPluginstoreFileAction extends AbstractDatabaseObjectAction {
 			I18nHandler::getInstance()->reset();
 			
 			// update name if needed
-			if ($languageVariableName !== $fileEditor->getDecoratedObject()->name || empty($fileEditor->getDecoratedObject()->lastNameUpdateTime)) {
+			if (($languageVariableName !== $fileEditor->getDecoratedObject()->name && WCF::getLanguage()->get($languageVariableName) !== $languageVariableName) || empty($fileEditor->getDecoratedObject()->lastNameUpdateTime)) {
 				$fileEditor->update(array(
 					'lastNameUpdateTime' => TIME_NOW,
 					'name' => $languageVariableName
+				));
+			}
+			else {
+				// update for correct calculation of last check
+				$fileEditor->update(array(
+					'lastNameUpdateTime' => TIME_NOW
 				));
 			}
 		}

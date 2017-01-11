@@ -73,12 +73,42 @@ class WoltLabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 					// no information will be lost
 					// 
 					// we disable the import of the localizations at this point
-					// and enable another cronjob that will be executed every hour
-					// until all localizations are imported
+					// missing localization will be imported at next execution of
+					// this cronjob
 					$fetchLocalizedTitles = false;
-					
-					// @todo cronjob
 				}
+			}
+		}
+		else {
+			$filesWithoutLocalization = array();
+			$filesWithLocalizationThatShouldBeChecked = array();
+			
+			foreach ($ownFileIDs as $fileID) {
+				if (($file = $this->fileList->search($fileID))) {
+					if (empty($file->lastNameUpdateTime)) {
+						$filesWithoutLocalization[] = $file;
+					}
+					else if ($file->lastNameUpdateTime <= (TIME_NOW - 259200)) {
+						$filesWithLocalizationThatShouldBeChecked[] = $file;
+					}
+				}
+			}
+			
+			try {
+				// files without localization have priority
+				if (!empty($filesWithoutLocalization)) {
+					$fileAction = new WoltlabPluginstoreFileAction($filesWithoutLocalization, 'fetchLocalizedTitle');
+					$fileAction->executeAction();
+				}
+				else if (!empty($filesWithLocalizationThatShouldBeChecked)) {
+					$fileAction = new WoltlabPluginstoreFileAction($filesWithLocalizationThatShouldBeChecked, 'fetchLocalizedTitle');
+					$fileAction->executeAction();
+				}
+			}
+			catch (HTTPServerErrorException $e) {
+				// throw error because after 24 hours (usually the time between executions)
+				// cloudflare should not blocking us anymore
+				throw $e;
 			}
 		}
 	}
