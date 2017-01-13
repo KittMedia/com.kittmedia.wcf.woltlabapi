@@ -23,21 +23,27 @@
 		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Enter your <code class="inlineCode">apiKey</code> that you can get in the <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Vendor Management</a>.]]></item>
 	</category>
 	
-	<catetegory name="wcf.global.form">
+	<category name="wcf.global.form">
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey"><![CDATA[API-Key]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description"><![CDATA[Enter your <code class="inlineCode">API–Key</code>, that you can retrieve under <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a>.]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID"><![CDATA[WoltLab-ID]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Enter your <code class="inlineCode">WoltLab-ID</code>, that you can retrieve under <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a>.]]></item>
-	</catetegory>
+		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.error.invalid"><![CDATA[No customer account has been found at WoltLab® GmbH under the given data.]]></item>
+	</category>
 	
 	<!-- i18n category -->
 	<category name="wcf.woltlabapi"></category>
+	
+	<category name="wcf.woltlabapi.error">
+		<item name="wcf.woltlabapi.error.apiServerFailed"><![CDATA[The API interface server of the WoltLab® GmbH is currently not available. Please try again later.]]></item>
+	</category>
 	
 	<category name="wcf.woltlabapi.pluginstore">
 		<item name="wcf.woltlabapi.pluginstore.file.edit"><![CDATA[Edit Own Product]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.isDisabled"><![CDATA[Disable Product]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.isDisabled.description"><![CDATA[Please note that this product is not disabled in the Plugin–Store.]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.lastNameUpdateTime"><![CDATA[Last match]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.link.showAtWoltLabPluginStore"><![CDATA[Show at Plugin–Store]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.name"><![CDATA[Name]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.name.description"><![CDATA[Enter the name for the product. Please note that this will be overwritten while matching the data from the Plugin–Store. Therefore, it is recommended to change the name <a href="https://pluginstore.woltlab.com/file-edit/{$file->getObjectID()}/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">at the Plugin–Store</a>.]]></item>
 	</category>

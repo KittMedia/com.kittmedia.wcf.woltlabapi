@@ -2,6 +2,7 @@
 namespace wcf\data\woltlab\pluginstore\file;
 use wcf\data\package\PackageCache;
 use wcf\data\AbstractDatabaseObjectAction;
+use wcf\data\IToggleAction;
 use wcf\system\language\I18nHandler;
 use wcf\system\language\LanguageFactory;
 use wcf\util\HTTPRequest;
@@ -15,7 +16,7 @@ use wcf\system\WCF;
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
-class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction {
+class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implements IToggleAction {
 	/**
 	 * @see		wcf\data\AbstractDatabaseObjectAction::$className
 	 */
@@ -49,6 +50,26 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction {
 		
 		return parent::delete();
 	}
+	
+	/**
+	 * @see		wcf\data\IToggleAction::toggle()
+	 */
+	public function toggle() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+		
+		foreach ($this->objects as $fileEditor) {
+			$fileEditor->update(array(
+				'isDisabled' => ($fileEditor->getDecoratedObject()->isDisabled ? 0 : 1)
+			));
+		}
+	}
+	
+	/**
+	 * @see		wcf\data\IToggleAction::validateToggle()
+	 */
+	public function validateToggle() {}
 	
 	/**
 	 * Validates the 'fetchLocalizedTitle()'–action.

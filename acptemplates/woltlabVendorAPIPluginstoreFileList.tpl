@@ -1,5 +1,13 @@
 {include file='header' pageTitle='wcf.acp.menu.link.content.woltlabVendorAPI.pluginstoreFileList'}
 
+<script data-relocate="true">
+	//<![CDATA[
+	$(function() {
+		new WCF.Action.Toggle('wcf\\data\\woltlab\\pluginstore\\file\\WoltlabPluginstoreFileAction', $('.jsPluginstoreRow'));
+	});
+	//]]>
+</script>
+
 <header class="boxHeadline">
 	<h1>{lang}wcf.acp.menu.link.content.woltlabVendorAPI.pluginstoreFileList{/lang}</h1>
 </header>
@@ -34,12 +42,19 @@
 			<tbody>
 				{content}
 					{foreach from=$objects item=pluginstoreFile}
-						<tr id="pluginstoreFile{@$pluginstoreFile->getObjectID()}">
+						<tr class="jsPluginstoreRow" id="pluginstoreFile{@$pluginstoreFile->getObjectID()}">
 							<td class="columnIcon">
 								<a href="{link controller='WoltlabVendorAPIPluginstoreFileEdit' id=$pluginstoreFile->getObjectID()}{/link}" class="jsTooltip" title="{lang}wcf.global.button.edit{/lang}">
 									<span class="icon icon16 icon-pencil"></span>
 								</a>
-									
+								
+								<span class="icon icon16 icon-{if !$pluginstoreFile->isDisabled}check{else}check-empty{/if} pointer jsTooltip jsToggleButton" data-object-id="{@$pluginstoreFile->getObjectID()}" title="{lang}wcf.global.button.{if $pluginstoreFile->isDisabled}enable{else}disable{/if}{/lang}"></span>
+								
+								<a href="{@$__wcf->getPath()}acp/dereferrer.php?url={@$pluginstoreFile->getPluginstoreLink()|rawurlencode}" class="jsTooltip"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} title="{lang}wcf.woltlabapi.pluginstore.file.link.showAtWoltLabPluginStore{/lang}">
+									<span class="icon icon16 icon-globe"></span>
+								</a>
+								
+								
 								{event name='rowButtons'}
 							</td>
 							<td class="columnID columnFileID">{@$pluginstoreFile->getObjectID()}</td>
