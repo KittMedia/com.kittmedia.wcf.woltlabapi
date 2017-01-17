@@ -2,7 +2,7 @@
 	{assign var=apiKeyDescriptionLanguageVariableName value='wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description'}
 {/if}
 {if !$woltlabIDDescriptionLanguageVariableName|isset || $woltlabIDDescriptionLanguageVariableName|empty}
-	{assign var=woltLabIDDescriptionLanguageVariableName value='wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description'}
+	{assign var=woltLabIDDescriptionLanguageVariableName value='wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description'}
 {/if}
 
 <dl{if $errorField == 'woltlabID'} class="formError"{/if}>
