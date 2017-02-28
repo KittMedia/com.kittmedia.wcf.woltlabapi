@@ -5,8 +5,8 @@ use wcf\data\AbstractDatabaseObjectAction;
 use wcf\data\IToggleAction;
 use wcf\system\language\I18nHandler;
 use wcf\system\language\LanguageFactory;
-use wcf\util\HTTPRequest;
 use wcf\system\WCF;
+use wcf\util\HTTPRequest;
 
 /**
  * Provides actions for woltlab pluginstore files.
@@ -121,7 +121,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 				
 				// manipulate $_POST as it is not possible
 				// to use the I18nHandler in another way
-				$_POST['pluginstoreFileTitle_i18n'][$language->getObjectID()] = $title;
+				$_POST['pluginstoreFileTitle_i18n'][$language->getObjectID()] = utf8_decode($title);
 			}
 			
 			// save i18n values

@@ -3,8 +3,8 @@
 	<packageinformation>
 		<packagename>WoltLab Vendor API</packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
-		<version>1.2.0 RC 1</version>
-		<date>2017-01-13</date>
+		<version>1.2.0</version>
+		<date>2017-02-28</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -32,5 +32,10 @@
 		<instruction type="file">files.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
 		<instruction type="template">templates.tar</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.2.0 RC 1">
+		<!-- files -->
+		<instruction type="file">files.tar</instruction>
 	</instructions>
 </package>
