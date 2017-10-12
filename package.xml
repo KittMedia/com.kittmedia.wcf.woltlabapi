@@ -3,8 +3,8 @@
 	<packageinformation>
 		<packagename>WoltLab Vendor API</packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
-		<version>1.2.0</version>
-		<date>2017-02-28</date>
+		<version>1.2.1</version>
+		<date>2017-10-12</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -34,8 +34,8 @@
 		<instruction type="template">templates.tar</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.2.0 RC 1">
-		<!-- files -->
-		<instruction type="file">files.tar</instruction>
+	<instructions type="update" fromversion="1.2.0">
+		<!-- configuration -->
+		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 </package>

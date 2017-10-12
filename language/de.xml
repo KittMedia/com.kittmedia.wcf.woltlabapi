@@ -25,9 +25,9 @@
 	
 	<category name="wcf.global.form">
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey"><![CDATA[API-Key]]></item>
-		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description"><![CDATA[Bitte geben Sie ihren <code class="inlineCode">API–Key</code> ein, welchen Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
+		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description"><![CDATA[Bitte geben Sie Ihren <code class="inlineCode">API–Key</code> ein, welchen Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID"><![CDATA[WoltLab-ID]]></item>
-		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Bitte geben Sie ihre <code class="inlineCode">WoltLab-ID</code> ein, welche Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
+		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Bitte geben Sie Ihre <code class="inlineCode">WoltLab-ID</code> ein, welche Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.error.invalid"><![CDATA[Unter den angegeben Daten wurde kein Kundenkonto bei der WoltLab® GmbH gefunden.]]></item>
 	</category>
 	
