@@ -22,7 +22,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 	/**
 	 * @inheritdoc
 	 */
-	protected $className = 'wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileEditor';
+	protected $className = WoltlabPluginstoreFileEditor::class;
 	
 	/**
 	 * @inheritdoc

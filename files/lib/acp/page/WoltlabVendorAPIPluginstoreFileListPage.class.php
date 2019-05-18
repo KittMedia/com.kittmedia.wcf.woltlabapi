@@ -1,5 +1,6 @@
 <?php
 namespace wcf\acp\page;
+use wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList;
 use wcf\page\SortablePage;
 
 /**
@@ -24,7 +25,7 @@ class WoltlabVendorAPIPluginstoreFileListPage extends SortablePage {
 	/**
 	 * @inheritdoc
 	 */
-	public $objectListClassName = 'wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList';
+	public $objectListClassName = WoltlabPluginstoreFileList::class;
 	
 	/**
 	 * @inheritdoc

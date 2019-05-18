@@ -15,5 +15,5 @@ class WoltlabPluginstoreFileEditor extends DatabaseObjectEditor {
 	/**
 	 * @inheritdoc
 	 */
-	protected static $baseClass = 'wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFile';
+	protected static $baseClass = WoltlabPluginstoreFile::class;
 }
