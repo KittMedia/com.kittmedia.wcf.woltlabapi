@@ -15,6 +15,8 @@ use wcf\util\HTTPRequest;
  * @copyright	2011-2017 KittMedia Productions
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
+ * @method	WoltlabPluginstoreFileEditor[]		getObjects()
+ * @method	WoltlabPluginstoreFileEditor		getSingleObject()
  */
 class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implements IToggleAction {
 	/**
