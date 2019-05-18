@@ -61,7 +61,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 			$this->readObjects();
 		}
 		
-		foreach ($this->objects as $fileEditor) {
+		foreach ($this->getObjects() as $fileEditor) {
 			$fileEditor->update([
 				'isDisabled' => ($fileEditor->getDecoratedObject()->isDisabled ? 0 : 1)
 			]);
@@ -89,7 +89,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 			$this->readObjects();
 		}
 		
-		foreach ($this->objects as $fileEditor) {
+		foreach ($this->getObjects() as $fileEditor) {
 			foreach (LanguageFactory::getInstance()->getLanguages() as $language) {
 				$languageCode = mb_strtoupper($language->getFixedLanguageCode());
 				$replacementMap = [
