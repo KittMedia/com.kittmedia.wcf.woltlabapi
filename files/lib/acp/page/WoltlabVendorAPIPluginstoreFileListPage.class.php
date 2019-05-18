@@ -29,5 +29,5 @@ class WoltlabVendorAPIPluginstoreFileListPage extends SortablePage {
 	/**
 	 * @see		\wcf\page\SortablePage::$validSortFields
 	 */
-	public $validSortFields = array('fileID', 'lastNameUpdateTime');
+	public $validSortFields = ['fileID', 'lastNameUpdateTime'];
 }

@@ -45,20 +45,20 @@ class WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 		// get new file ids
 		$newFileIDs = array_diff(
 			$ownFileIDs,
-			empty($this->fileList->getObjectIDs()) ? array() : $this->fileList->getObjectIDs()
+			empty($this->fileList->getObjectIDs()) ? [] : $this->fileList->getObjectIDs()
 		);
 		
 		if (!empty($newFileIDs)) {
 			$fetchLocalizedTitles = true;
 			foreach ($newFileIDs as $fileID) {
 				try {
-					$fileAction = new WoltlabPluginstoreFileAction(array(), 'create', array(
-						'data' => array(
+					$fileAction = new WoltlabPluginstoreFileAction([], 'create', [
+						'data' => [
 							'fileID' => $fileID,
 							'name' => 'wcf.woltlabapi.file'.$fileID
-						),
+						],
 						'fetchLocalizedTitle' => $fetchLocalizedTitles
-					));
+					]);
 					$fileAction->executeAction();
 				}
 				catch (HTTPServerErrorException $e) {
@@ -80,8 +80,8 @@ class WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 			}
 		}
 		else {
-			$filesWithoutLocalization = array();
-			$filesWithLocalizationThatShouldBeChecked = array();
+			$filesWithoutLocalization = [];
+			$filesWithLocalizationThatShouldBeChecked = [];
 			
 			foreach ($ownFileIDs as $fileID) {
 				if (($file = $this->fileList->search($fileID))) {

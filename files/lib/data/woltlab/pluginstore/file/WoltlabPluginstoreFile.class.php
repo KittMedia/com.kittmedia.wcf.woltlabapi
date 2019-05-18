@@ -36,8 +36,8 @@ class WoltlabPluginstoreFile extends DatabaseObject implements ITitledObject {
 	 */
 	public function getPluginstoreLink() {
 		return str_ireplace(
-			array('{$fileID}', '?l={$languageID}'),
-			array($this->getObjectID(), ''),
+			['{$fileID}', '?l={$languageID}'],
+			[$this->getObjectID(), ''],
 			WOLTLAB_PLUGIN_STORE_URL_SCHEME
 		);
 	}

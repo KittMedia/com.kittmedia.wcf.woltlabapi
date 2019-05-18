@@ -24,9 +24,9 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * List of cached results for each api
 	 * @var		array<mixed>
 	 */
-	private $cachedResults = array(
-		'vendorCustomer' => array()
-	);
+	private $cachedResults = [
+		'vendorCustomer' => []
+	];
 	
 	/**
 	 * Active request
@@ -59,19 +59,19 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * @param	boolean			$executeRequestAutomatically
 	 * @return	HTTPRequest
 	 */
-	private function getHTTPRequest($apiURL, $postParameter = array(), $executeRequestAutomatically = false) {
-		static $defaultPOSTParameter = array(
+	private function getHTTPRequest($apiURL, $postParameter = [], $executeRequestAutomatically = false) {
+		static $defaultPOSTParameter = [
 			'apiKey' => WOLTLAB_VENDOR_API_KEY,
 			'vendorID' => WOLTLAB_VENDOR_ID
-		);
+		];
 		
 		$__postParameter = array_merge($defaultPOSTParameter, $postParameter);
 		
 		$request = new HTTPRequest(
 			$apiURL,
-			array(
+			[
 				'method' => 'POST'
-			),
+			],
 			$__postParameter
 		);
 		
@@ -91,7 +91,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 			return $this->getPurchasedPluginStoreFileIDsByUser(WOLTLAB_ID, WOLTLAB_API_KEY);
 		}
 		
-		return array();
+		return [];
 	}
 	
 	/**
@@ -106,10 +106,10 @@ class WoltlabVendorAPI extends SingletonFactory {
 			return $this->cachedResults['vendorCustomer'][$woltlabID]['fileIDs'];
 		}
 		
-		$this->request = $this->getHTTPRequest(static::API_URL_VENDOR_CUSTOMER, array(
+		$this->request = $this->getHTTPRequest(static::API_URL_VENDOR_CUSTOMER, [
 			'pluginStoreApiKey' => $pluginStoreApiKey,
 			'woltlabID' => $woltlabID
-		), true);
+		], true);
 		
 		$reply = $this->getReplyAsArray();
 		if ($reply['status'] !== 200) {

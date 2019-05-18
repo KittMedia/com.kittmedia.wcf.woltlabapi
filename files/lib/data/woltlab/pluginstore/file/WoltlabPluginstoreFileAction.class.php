@@ -29,7 +29,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 		$file = parent::create();
 		
 		if (isset($this->parameters['fetchLocalizedTitle']) && $this->parameters['fetchLocalizedTitle']) {
-			$fileAction = new WoltlabPluginstoreFileAction(array($file), 'fetchLocalizedTitle');
+			$fileAction = new WoltlabPluginstoreFileAction([$file], 'fetchLocalizedTitle');
 			$fileAction->executeAction();
 			
 			// reload
@@ -60,9 +60,9 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 		}
 		
 		foreach ($this->objects as $fileEditor) {
-			$fileEditor->update(array(
+			$fileEditor->update([
 				'isDisabled' => ($fileEditor->getDecoratedObject()->isDisabled ? 0 : 1)
-			));
+			]);
 		}
 	}
 	
@@ -90,10 +90,10 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 		foreach ($this->objects as $fileEditor) {
 			foreach (LanguageFactory::getInstance()->getLanguages() as $language) {
 				$languageCode = mb_strtoupper($language->getFixedLanguageCode());
-				$replacementMap = array(
+				$replacementMap = [
 					0 => $fileEditor->getDecoratedObject()->getObjectID(),
 					1 => WOLTLAB_INTERFACE_LANGUAGE_ID_EN
-				);
+				];
 				
 				if (defined('WOLTLAB_INTERFACE_LANGUAGE_ID_'.$languageCode)) {
 					$replacementMap[1] = constant('WOLTLAB_INTERFACE_LANGUAGE_ID_'.$languageCode);
@@ -101,7 +101,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 				
 				$httpRequest = new HTTPRequest(
 					str_replace(
-						array('{$fileID}', '{$languageID}'),
+						['{$fileID}', '{$languageID}'],
 						$replacementMap,
 						WOLTLAB_PLUGIN_STORE_URL_SCHEME
 					)
@@ -138,16 +138,16 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 			
 			// update name if needed
 			if (($languageVariableName !== $fileEditor->getDecoratedObject()->name && WCF::getLanguage()->get($languageVariableName) !== $languageVariableName) || empty($fileEditor->getDecoratedObject()->lastNameUpdateTime)) {
-				$fileEditor->update(array(
+				$fileEditor->update([
 					'lastNameUpdateTime' => TIME_NOW,
 					'name' => $languageVariableName
-				));
+				]);
 			}
 			else {
 				// update for correct calculation of last check
-				$fileEditor->update(array(
+				$fileEditor->update([
 					'lastNameUpdateTime' => TIME_NOW
-				));
+				]);
 			}
 		}
 	}

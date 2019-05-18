@@ -92,11 +92,11 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 		
 		I18nHandler::getInstance()->assignVariables(!empty($_POST));
 		
-		WCF::getTPL()->assign(array(
+		WCF::getTPL()->assign([
 			'file' => $this->file,
 			'fileID' => $this->file->getObjectID(),
 			'isDisabled' => $this->isDisabled
-		));
+		]);
 	}
 	
 	/**
@@ -145,12 +145,12 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 			);
 		}
 		
-		$this->objectAction = new WoltlabPluginstoreFileAction(array($this->file), 'update', array(
-			'data' => array(
+		$this->objectAction = new WoltlabPluginstoreFileAction([$this->file], 'update', [
+			'data' => [
 				'name' => $name,
 				'isDisabled' => (int) $this->isDisabled,
 				'lastNameUpdateTime' => TIME_NOW
-			))
+			]]
 		);
 		$this->objectAction->executeAction();
 		
