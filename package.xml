@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.kittmedia.wcf.woltlabapi" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/package.xsd">
+<package name="com.kittmedia.wcf.woltlabapi" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/package.xsd">
 	<packageinformation>
 		<packagename>WoltLab Vendor API</packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
-		<version>1.2.1</version>
-		<date>2017-10-12</date>
+		<version>2.0.0 Alpha 1</version>
+		<date>2019-05-18</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -13,29 +13,24 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="3.0.21 pl 1">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="3.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="3.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
 		<!-- configuration -->
-		<instruction type="acpMenu">acpMenu.xml</instruction>
-		<instruction type="cronjob">cronjob.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
-		<instruction type="option">option.xml</instruction>
+		<instruction type="acpMenu" />
+		<instruction type="cronjob" />
+		<instruction type="language" />
+		<instruction type="option" />
 		
 		<!-- files -->
-		<instruction type="acpTemplate">acptemplates.tar</instruction>
-		<instruction type="file">files.tar</instruction>
-		<instruction type="sql">install.sql</instruction>
-		<instruction type="template">templates.tar</instruction>
-	</instructions>
-	
-	<instructions type="update" fromversion="1.2.0">
-		<!-- configuration -->
-		<instruction type="language">language/*.xml</instruction>
+		<instruction type="acpTemplate" />
+		<instruction type="file" />
+		<instruction type="sql" />
+		<instruction type="template" />
 	</instructions>
 </package>
