@@ -17,6 +17,7 @@ use wcf\util\JSON;
 class WoltlabVendorAPI extends SingletonFactory {
 	/**
 	 * API url
+	 * @var		string
 	 */
 	const API_URL_VENDOR_CUSTOMER = 'https://api.woltlab.com/1.2/customer/vendor/list.json';
 	
@@ -30,7 +31,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	
 	/**
 	 * Active request
-	 * @var		wcf\util\HTTPRequest
+	 * @var		HTTPRequest
 	 */
 	protected $request = null;
 	

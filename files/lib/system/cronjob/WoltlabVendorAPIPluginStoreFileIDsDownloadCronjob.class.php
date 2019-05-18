@@ -21,7 +21,7 @@ use wcf\system\exception\HTTPServerErrorException;
 class WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob {
 	/**
 	 * List of current files
-	 * @var		wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList
+	 * @var		WoltlabPluginstoreFileList
 	 */
 	public $fileList = null;
 	

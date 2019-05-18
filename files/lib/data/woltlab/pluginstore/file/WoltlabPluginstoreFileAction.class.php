@@ -28,6 +28,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 	 * @inheritdoc
 	 */
 	public function create() {
+		/** @var	WoltlabPluginstoreFile		 $file */
 		$file = parent::create();
 		
 		if (isset($this->parameters['fetchLocalizedTitle']) && $this->parameters['fetchLocalizedTitle']) {

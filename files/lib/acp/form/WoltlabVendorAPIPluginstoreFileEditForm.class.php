@@ -35,7 +35,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	
 	/**
 	 * File
-	 * @var		wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFile
+	 * @var		WoltlabPluginstoreFile
 	 */
 	public $file = null;
 	
