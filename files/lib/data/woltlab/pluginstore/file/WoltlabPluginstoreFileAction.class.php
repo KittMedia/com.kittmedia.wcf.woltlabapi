@@ -20,12 +20,12 @@ use wcf\util\HTTPRequest;
  */
 class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implements IToggleAction {
 	/**
-	 * @see		wcf\data\AbstractDatabaseObjectAction::$className
+	 * @inheritdoc
 	 */
 	protected $className = 'wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileEditor';
 	
 	/**
-	 * @see		wcf\data\AbstractDatabaseObjectAction::create()
+	 * @inheritdoc
 	 */
 	public function create() {
 		$file = parent::create();
@@ -42,7 +42,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 	}
 	
 	/**
-	 * @see		wcf\data\AbstractDatabaseObjectAction::delete()
+	 * @inheritdoc
 	 */
 	public function delete() {
 		// delete language variables
@@ -54,7 +54,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 	}
 	
 	/**
-	 * @see		wcf\data\IToggleAction::toggle()
+	 * @inheritdoc
 	 */
 	public function toggle() {
 		if (empty($this->objects)) {
@@ -69,7 +69,7 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 	}
 	
 	/**
-	 * @see		wcf\data\IToggleAction::validateToggle()
+	 * @inheritdoc
 	 */
 	public function validateToggle() {}
 	

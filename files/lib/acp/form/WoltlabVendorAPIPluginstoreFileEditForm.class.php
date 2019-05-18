@@ -19,17 +19,17 @@ use wcf\system\WCF;
  */
 class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	/**
-	 * @see		\wcf\page\AbtractPage::$action
+	 * @inheritdoc
 	 */
 	public $action = 'edit';
 	
 	/**
-	 * @see		\wcf\page\AbstractPage::$activeMenuItem
+	 * @inheritdoc
 	 */
 	public $activeMenuItem = 'wcf.acp.menu.link.content.woltlabVendorAPI.pluginstoreFileList';
 	
 	/**
-	 * @see		\wcf\page\AbstractPage::$templateName
+	 * @inheritdoc
 	 */
 	public $templateName = 'woltlabVendorAPIPluginstoreFileEdit';
 	
@@ -52,7 +52,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	public $isDisabled = false;
 	
 	/**
-	 * @see		wcf\page\IPage::readParameters()
+	 * @inheritdoc
 	 */
 	public function readParameters() {
 		parent::readParameters();
@@ -66,7 +66,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see		wcf\page\IPage::readData()
+	 * @inheritdoc
 	 */
 	public function readData() {
 		I18nHandler::getInstance()->register('name');
@@ -85,7 +85,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see		wcf\page\IPage::assignVariables()
+	 * @inheritdoc
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
@@ -100,7 +100,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see		wcf\form\IForm::readFormParameters()
+	 * @inheritdoc
 	 */
 	public function readFormParameters() {
 		parent::readFormParameters();
@@ -110,7 +110,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see		wcf\form\IForm::validate()
+	 * @inheritdoc
 	 */
 	public function validate() {
 		parent::validate();
@@ -126,7 +126,7 @@ class WoltlabVendorAPIPluginstoreFileEditForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see		wcf\form\IForm::validate()
+	 * @inheritdoc
 	 */
 	public function save() {
 		parent::save();

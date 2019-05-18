@@ -26,7 +26,7 @@ class WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 	public $fileList = null;
 	
 	/**
-	 * @see	\wcf\system\cronjob\ICronjob::execute()
+	 * @inheritdoc
 	 */
 	public function execute(Cronjob $cronjob) {
 		parent::execute($cronjob);

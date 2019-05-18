@@ -13,7 +13,7 @@ use wcf\data\DatabaseObjectEditor;
  */
 class WoltlabPluginstoreFileEditor extends DatabaseObjectEditor {
 	/**
-	 * @see		wcf\data\DatabaseObjectDecorator::$baseClass
+	 * @inheritdoc
 	 */
 	protected static $baseClass = 'wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFile';
 }

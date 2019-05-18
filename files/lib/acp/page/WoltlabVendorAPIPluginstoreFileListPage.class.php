@@ -12,22 +12,22 @@ use wcf\page\SortablePage;
  */
 class WoltlabVendorAPIPluginstoreFileListPage extends SortablePage {
 	/**
-	 * @see		\wcf\page\AbstractPage::$activeMenuItem
+	 * @inheritdoc
 	 */
 	public $activeMenuItem = 'wcf.acp.menu.link.content.woltlabVendorAPI.pluginstoreFileList';
 	
 	/**
-	 * @see		\wcf\page\SortablePage::$defaultSortField
+	 * @inheritdoc
 	 */
 	public $defaultSortField = 'fileID';
 	
 	/**
-	 * @see		\wcf\page\MultipleLinkPage::$objectListClassName
+	 * @inheritdoc
 	 */
 	public $objectListClassName = 'wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList';
 	
 	/**
-	 * @see		\wcf\page\SortablePage::$validSortFields
+	 * @inheritdoc
 	 */
 	public $validSortFields = ['fileID', 'lastNameUpdateTime'];
 }

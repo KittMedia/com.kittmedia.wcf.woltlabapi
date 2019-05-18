@@ -35,7 +35,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	protected $request = null;
 	
 	/**
-	 * @see		wcf\system\SingletonFactory::init()
+	 * @inheritdoc
 	 */
 	protected function init() { 
 		if (empty(WOLTLAB_VENDOR_ID) || empty(WOLTLAB_VENDOR_API_KEY)) {

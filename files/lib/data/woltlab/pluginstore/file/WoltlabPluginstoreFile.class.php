@@ -18,17 +18,17 @@ use wcf\system\WCF;
  */
 class WoltlabPluginstoreFile extends DatabaseObject implements ITitledObject {
 	/**
-	 * @see		wcf\data\DatabaseObject:$databaseTableName
+	 * @inheritdoc
 	 */
 	protected static $databaseTableName = 'woltlab_pluginstore_file';
 	
 	/**
-	 * @see		wcf\data\DatabaseObject:$databaseTableIndexName
+	 * @inheritdoc
 	 */
 	protected static $databaseTableIndexName = 'fileID';
 	
 	/**
-	 * @see		wcf\data\ITitledObject::getTitle()
+	 * @inheritdoc
 	 */
 	public function getTitle() {
 		return WCF::getLanguage()->get($this->name);
