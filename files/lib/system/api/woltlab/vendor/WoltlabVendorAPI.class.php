@@ -22,7 +22,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	
 	/**
 	 * List of cached results for each api
-	 * @var		array<mixed>
+	 * @var		mixed[]
 	 */
 	private $cachedResults = [
 		'vendorCustomer' => []
@@ -55,7 +55,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * If `$executeRequestAutomatically` is set to `true` then request will be
 	 * automatically performed.
 	 * @param	string			$apiURL
-	 * @param	array<string>		$postParameter
+	 * @param	string[]		$postParameter
 	 * @param	boolean			$executeRequestAutomatically
 	 * @return	HTTPRequest
 	 */
@@ -84,7 +84,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	
 	/**
 	 * Returns a list of all own plugin store file ids.
-	 * @return	array<integer>
+	 * @return	integer[]
 	 */
 	public function getOwnPluginStoreFileIDs() {
 		if (!empty(WOLTLAB_ID) && !empty(WOLTLAB_API_KEY)) {
@@ -99,7 +99,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * of the WoltLab user with the given credentials.
 	 * @param	integer		$woltlabID
 	 * @param	string		$pluginStoreApiKey
-	 * @return	array<integer>
+	 * @return	integer[]
 	 */
 	public function getPurchasedPluginStoreFileIDsByUser($woltlabID, $pluginStoreApiKey) {
 		if (isset($this->cachedResults['vendorCustomer'][$woltlabID])) {
@@ -128,7 +128,7 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * Decodes the JSON string into an array and return it.
 	 * If `$reply` is empty the `body` of the active request reply will be used.
 	 * @param	string		$reply
-	 * @return	array<string>
+	 * @return	string[]
 	 */
 	private function getReplyAsArray($reply = '') {
 		if (empty($reply)) {
