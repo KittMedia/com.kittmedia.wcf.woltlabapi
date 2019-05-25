@@ -33,4 +33,10 @@
 		<instruction type="sql" />
 		<instruction type="template" />
 	</instructions>
+	
+	<instructions type="update" fromversion="1.2.1">
+		<!-- files -->
+		<instruction type="acpTemplate" />
+		<instruction type="file" />
+	</instructions>
 </package>
