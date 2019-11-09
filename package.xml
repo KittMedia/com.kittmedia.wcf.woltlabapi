@@ -38,9 +38,8 @@
 		<instruction type="template" />
 	</instructions>
 	
-	<instructions type="update" fromversion="1.2.1">
-		<!-- files -->
-		<instruction type="acpTemplate" />
-		<instruction type="file" />
+	<instructions type="update" fromversion="2.0.0 Alpha 1">
+		<!-- dummy instruction -->
+		<instruction type="language" />
 	</instructions>
 </package>
