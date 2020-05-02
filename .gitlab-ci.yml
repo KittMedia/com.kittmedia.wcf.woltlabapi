@@ -22,7 +22,7 @@ create_package:
     - cp $PACKAGE_NAME.tar.gz $TEMP_DIR
     
     only:
-    - master
+    - "2.0"
     
     artifacts:
         paths:
