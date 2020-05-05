@@ -3,7 +3,7 @@
 	<packageinformation>
 		<packagename>WoltLab Vendor API</packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
-		<version>2.1.0 Alpha 1</version>
+		<version>2.2.0 Alpha 1</version>
 		<date>2019-05-18</date>
 	</packageinformation>
 	
@@ -12,16 +12,12 @@
 		<authorurl>http://kittmedia.com</authorurl>
 	</authorinformation>
 	
-	<compatibility>
-		<api version="2018"></api>
-	</compatibility>
-	
 	<requiredpackages>
-		<requiredpackage minversion="3.1.9 pl 2">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.2.4">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="3.2.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="5.3.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
@@ -38,7 +34,7 @@
 		<instruction type="template" />
 	</instructions>
 	
-	<instructions type="update" fromversion="2.0.0 Alpha 1">
+	<instructions type="update" fromversion="2.1.0 Alpha 1">
 		<!-- dummy instruction -->
 		<instruction type="language" />
 	</instructions>
