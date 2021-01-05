@@ -3,9 +3,7 @@ namespace wcf\system\cronjob;
 use wcf\data\cronjob\Cronjob;
 use wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileAction;
 use wcf\data\woltlab\pluginstore\file\WoltlabPluginstoreFileList;
-use wcf\system\cronjob\AbstractCronjob;
 use wcf\system\api\woltlab\vendor\WoltlabVendorAPI;
-use wcf\system\exception\HTTPServerErrorException;
 
 /**
  * Saves the over the WoltLab Vendor API delivered own products
@@ -13,8 +11,8 @@ use wcf\system\exception\HTTPServerErrorException;
  * The localized title from the WoltLab Plugin–Store file entry pages
  * will be automatically downloaded, too.
  * 
- * @author	Dennis Kraffczyk
- * @copyright	2011-2017 KittMedia Productions
+ * @author	Dennis Kraffczyk, Matthias Kittsteiner
+ * @copyright	2021 KittMedia
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
@@ -39,76 +37,44 @@ class WoltlabVendorAPIPluginStoreFileIDsDownloadCronjob extends AbstractCronjob 
 		$this->fileList = new WoltlabPluginstoreFileList();
 		$this->fileList->readObjects();
 		
-		// get own file ids from api
-		$ownFileIDs = WoltlabVendorAPI::getInstance()->getOwnPluginStoreFileIDs();
+		// get own files from api
+		$ownFiles = WoltlabVendorAPI::getInstance()->getPluginStoreFilesByUser();
+		// current file list
+		$currentFileList = $this->fileList->getObjectIDs();
 		
-		// get new file ids
-		$newFileIDs = array_diff(
-			$ownFileIDs,
-			empty($this->fileList->getObjectIDs()) ? [] : $this->fileList->getObjectIDs()
-		);
+		if (empty($ownFiles)) {
+			return;
+		}
 		
-		if (!empty($newFileIDs)) {
-			$fetchLocalizedTitles = true;
-			foreach ($newFileIDs as $fileID) {
-				try {
-					$fileAction = new WoltlabPluginstoreFileAction([], 'create', [
-						'data' => [
-							'fileID' => $fileID,
-							'name' => 'wcf.woltlabapi.file'.$fileID
-						],
-						'fetchLocalizedTitle' => $fetchLocalizedTitles
+		foreach ($ownFiles as $file) {
+			if (!in_array($file['fileID'], $currentFileList)) {
+				$fileAction = new WoltlabPluginstoreFileAction([], 'create', [
+					'data' => [
+						'fileID' => $file['fileID'],
+						'name' => 'wcf.woltlabapi.file'.$file['fileID']
+					],
+					'file' => $file
+				]);
+				$fileAction->executeAction();
+			}
+			else {
+				$needsTitleUpdate = false;
+				
+				if ($fileListFile = $this->fileList->search($file['fileID'])) {
+					if (empty($file->lastNameUpdateTime)) {
+						$needsTitleUpdate = true;
+					}
+					else if ($file->lastNameUpdateTime <= (TIME_NOW - 259200)) {
+						$needsTitleUpdate = true;
+					}
+				}
+				
+				if ($needsTitleUpdate) {
+					$fileAction = new WoltlabPluginstoreFileAction([$file['fileID']], 'updateTitle', [
+						'file' => $file,
 					]);
 					$fileAction->executeAction();
 				}
-				catch (HTTPServerErrorException $e) {
-					// ignore it as usually its cloudflare
-					// that is blocking us
-					// getting into the blocking state of cloudflare
-					// usually only happens during the first import (=download)
-					// of the localized titles from the WoltLab Plugin–Store over two
-					// HTTPS requests per file
-					// 
-					// as at this point the file is already stored in the database
-					// no information will be lost
-					// 
-					// we disable the import of the localizations at this point
-					// missing localization will be imported at next execution of
-					// this cronjob
-					$fetchLocalizedTitles = false;
-				}
-			}
-		}
-		else {
-			$filesWithoutLocalization = [];
-			$filesWithLocalizationThatShouldBeChecked = [];
-			
-			foreach ($ownFileIDs as $fileID) {
-				if (($file = $this->fileList->search($fileID))) {
-					if (empty($file->lastNameUpdateTime)) {
-						$filesWithoutLocalization[] = $file;
-					}
-					else if ($file->lastNameUpdateTime <= (TIME_NOW - 259200)) {
-						$filesWithLocalizationThatShouldBeChecked[] = $file;
-					}
-				}
-			}
-			
-			try {
-				// files without localization have priority
-				if (!empty($filesWithoutLocalization)) {
-					$fileAction = new WoltlabPluginstoreFileAction($filesWithoutLocalization, 'fetchLocalizedTitle');
-					$fileAction->executeAction();
-				}
-				else if (!empty($filesWithLocalizationThatShouldBeChecked)) {
-					$fileAction = new WoltlabPluginstoreFileAction($filesWithLocalizationThatShouldBeChecked, 'fetchLocalizedTitle');
-					$fileAction->executeAction();
-				}
-			}
-			catch (HTTPServerErrorException $e) {
-				// throw error because after 24 hours (usually the time between executions)
-				// cloudflare should not blocking us anymore
-				throw $e;
 			}
 		}
 	}

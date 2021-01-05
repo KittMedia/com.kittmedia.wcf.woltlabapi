@@ -6,17 +6,17 @@ use wcf\data\IToggleAction;
 use wcf\system\language\I18nHandler;
 use wcf\system\language\LanguageFactory;
 use wcf\system\WCF;
-use wcf\util\HTTPRequest;
 
 /**
  * Provides actions for woltlab pluginstore files.
  * 
- * @author	Dennis Kraffczyk
- * @copyright	2011-2017 KittMedia Productions
+ * @author	Dennis Kraffczyk, Matthias Kittsteiner
+ * @copyright	2021 KittMedia
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  * @method	WoltlabPluginstoreFileEditor[]		getObjects()
  * @method	WoltlabPluginstoreFileEditor		getSingleObject()
+ * @property	WoltLabPluginStoreFileEditor[]		$objects
  */
 class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implements IToggleAction {
 	/**
@@ -31,13 +31,11 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 		/** @var	WoltlabPluginstoreFile		 $file */
 		$file = parent::create();
 		
-		if (isset($this->parameters['fetchLocalizedTitle']) && $this->parameters['fetchLocalizedTitle']) {
-			$fileAction = new WoltlabPluginstoreFileAction([$file], 'fetchLocalizedTitle');
-			$fileAction->executeAction();
-			
-			// reload
-			$file = new WoltlabPluginstoreFile($file->getObjectID());
-		}
+		$fileAction = new WoltlabPluginstoreFileAction([$file], 'updateTitle', $this->parameters);
+		$fileAction->executeAction();
+		
+		// reload
+		$file = new WoltlabPluginstoreFile($file->getObjectID());
 		
 		return $file;
 	}
@@ -70,65 +68,25 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 	}
 	
 	/**
-	 * @inheritdoc
+	 * Update the title of a plugin store file.
 	 */
-	public function validateToggle() {}
-	
-	/**
-	 * Validates the 'fetchLocalizedTitle()'–action.
-	 */
-	public function validateFetchLocalizedTitle() {
-		parent::validateUpdate();
-	}
-	
-	/**
-	 * Fetches the localized title from the file entry pages
-	 * of the WoltLab Plugin–Store and saves it via the I18nHandler.
-	 */
-	public function fetchLocalizedTitle() {
+	public function updateTitle() {
 		if (empty($this->objects)) {
 			$this->readObjects();
 		}
 		
 		foreach ($this->getObjects() as $fileEditor) {
 			foreach (LanguageFactory::getInstance()->getLanguages() as $language) {
-				$languageCode = mb_strtoupper($language->getFixedLanguageCode());
-				$replacementMap = [
-					0 => $fileEditor->getDecoratedObject()->getObjectID(),
-					1 => WOLTLAB_INTERFACE_LANGUAGE_ID_EN
-				];
-				
-				if (defined('WOLTLAB_INTERFACE_LANGUAGE_ID_'.$languageCode)) {
-					$replacementMap[1] = constant('WOLTLAB_INTERFACE_LANGUAGE_ID_'.$languageCode);
-				}
-				
-				$httpRequest = new HTTPRequest(
-					str_replace(
-						['{$fileID}', '{$languageID}'],
-						$replacementMap,
-						WOLTLAB_PLUGIN_STORE_URL_SCHEME
-					)
-				);
-				$httpRequest->execute();
-				$replyData = $httpRequest->getReply();
-				
-				// fetch content of title element
-				libxml_use_internal_errors(true);
-				$document = new \DOMDocument();
-				$document->loadHTML($replyData['body']);
-				$titleElements = $document->getElementsByTagName('title');
-				$title = mb_substr($titleElements->item(0)->nodeValue, 0, - 11);
-				libxml_use_internal_errors(false);
-				
-				unset($httpRequest);
+				$languageCode = mb_strtolower($language->getFixedLanguageCode());
+				$title = $this->parameters['file']['name'][$languageCode];
 				
 				// manipulate $_POST as it is not possible
 				// to use the I18nHandler in another way
-				$_POST['pluginstoreFileTitle_i18n'][$language->getObjectID()] = utf8_decode($title);
+				$_POST['pluginstoreFileTitle_i18n'][$language->getObjectID()] = $title;
 			}
 			
 			// save i18n values
-			$languageVariableName = 'wcf.woltlabapi.file'.$fileEditor->getDecoratedObject()->getObjectID();
+			$languageVariableName = 'wcf.woltlabapi.file' . $fileEditor->getDecoratedObject()->getObjectID();
 			I18nHandler::getInstance()->register('pluginstoreFileTitle');
 			I18nHandler::getInstance()->readValues();
 			I18nHandler::getInstance()->save(
@@ -153,5 +111,17 @@ class WoltlabPluginstoreFileAction extends AbstractDatabaseObjectAction implemen
 				]);
 			}
 		}
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function validateToggle() {}
+	
+	/**
+	 * Validates the 'updateTitle()'–action.
+	 */
+	public function validateUpdateTitle() {
+		parent::validateUpdate();
 	}
 }

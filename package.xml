@@ -3,13 +3,13 @@
 	<packageinformation>
 		<packagename>WoltLab Vendor API</packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
-		<version>2.2.0 Alpha 1</version>
-		<date>2019-05-18</date>
+		<version>2.2.0</version>
+		<date>2021-01-05</date>
 	</packageinformation>
 	
 	<authorinformation>
 		<author><![CDATA[KittMedia]]></author>
-		<authorurl>http://kittmedia.com</authorurl>
+		<authorurl>https://kittmedia.com</authorurl>
 	</authorinformation>
 	
 	<requiredpackages>
@@ -17,7 +17,7 @@
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="5.3.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
@@ -35,7 +35,12 @@
 	</instructions>
 	
 	<instructions type="update" fromversion="2.1.0 Alpha 1">
-		<!-- dummy instruction -->
-		<instruction type="language" />
+		<!-- files -->
+		<instruction type="file" />
+	</instructions>
+	
+	<instructions type="update" fromversion="2.2.0 Alpha 1">
+		<!-- files -->
+		<instruction type="file" />
 	</instructions>
 </package>

@@ -9,8 +9,8 @@ use wcf\util\JSON;
 /**
  * Easy to use class for the WoltLab GmbH vendor API in version 1.2.
  * 
- * @author	Dennis Kraffczyk
- * @copyright	2011-2017 KittMedia Productions
+ * @author	Dennis Kraffczyk, Matthias Kittsteiner
+ * @copyright	2021 KittMedia
  * @license	LGPL <http://www.gnu.org/licenses/lgpl.html>
  * @package	com.kittmedia.wcf.woltlabapi
  */
@@ -20,13 +20,15 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * @var		string
 	 */
 	const API_URL_VENDOR_CUSTOMER = 'https://api.woltlab.com/1.2/customer/vendor/list.json';
+	const API_URL_VENDOR_FILE = 'https://api.woltlab.com/1.1/vendor/file/list.json';
 	
 	/**
 	 * List of cached results for each api
 	 * @var		mixed[]
 	 */
 	private $cachedResults = [
-		'vendorCustomer' => []
+		'vendorCustomer' => [],
+		'vendorFile' => []
 	];
 	
 	/**
@@ -123,6 +125,38 @@ class WoltlabVendorAPI extends SingletonFactory {
 		unset($reply);
 		
 		return $this->cachedResults['vendorCustomer'][$woltlabID]['fileIDs'];
+	}
+	
+	/**
+	 * Returns a list of the plugin store files
+	 * of the WoltLab user with the given credentials.
+	 * @return	array
+	 */
+	public function getPluginStoreFilesByUser() {
+		if (empty(WOLTLAB_ID) || empty(WOLTLAB_API_KEY)) {
+			return [];
+		}
+		
+		if (isset($this->cachedResults['vendorFile'][WOLTLAB_ID])) {
+			return $this->cachedResults['vendorFile'][WOLTLAB_ID]['files'];
+		}
+		
+		$this->request = $this->getHTTPRequest(static::API_URL_VENDOR_FILE, [
+			'pluginStoreApiKey' => WOLTLAB_API_KEY,
+			'woltlabID' => WOLTLAB_ID
+		], true);
+		
+		$reply = $this->getReplyAsArray();
+		if ($reply['status'] !== 200) {
+			$errorMessage = (isset($reply['errorMessage']) ? $reply['errorMessage'] : '');
+			throw new SystemException('Received status code '.$reply['status'].' from server'.($errorMessage ? ' with message: '.$errorMessage : '.'));
+		}
+		
+		// cache reply
+		$this->cachedResults['vendorFile'][WOLTLAB_ID] = $reply;
+		unset($reply);
+		
+		return $this->cachedResults['vendorFile'][WOLTLAB_ID]['files'];
 	}
 	
 	/**
