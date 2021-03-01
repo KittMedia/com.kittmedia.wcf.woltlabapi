@@ -8,26 +8,26 @@
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.general.api"><![CDATA[API–Schnittstellen]]></item>
 		<item name="wcf.acp.option.category.general.api.woltlabPluginStore"><![CDATA[WoltLab® GmbH – Plugin–Store]]></item>
-		<item name="wcf.acp.option.category.general.api.woltlabPluginStore.description"><![CDATA[Um den automatischen Abgleich Ihrer eigenen Produkte zu ermöglichen ist die Angabe der eigenen „WoltLab-ID” sowie des eigenen „API-Key” notwendig. Die entsprechenden Daten finden Sie im Bereich <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://woltlab.com/api-management/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">API-Zugriff</a> bei WoltLab®.]]></item>
+		<item name="wcf.acp.option.category.general.api.woltlabPluginStore.description"><![CDATA[Um den automatischen Abgleich Ihrer eigenen Produkte zu ermöglichen, ist die Angabe der eigenen „WoltLab-ID” sowie des eigenen „API-Key” erforderlich. Die entsprechenden Daten {if LANGUAGE_USE_INFORMAL_VARIANT}findest du{else}finden Sie{/if} im Bereich <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://woltlab.com/api-management/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">API-Zugriff</a> bei WoltLab®.]]></item>
 		<item name="wcf.acp.option.category.general.api.woltlabVendor"><![CDATA[WoltLab® GmbH – Händler-Bereich]]></item>
 		<item name="wcf.acp.option.woltlab_api_key"><![CDATA[API-Key]]></item>
 		<item name="wcf.acp.option.woltlab_id"><![CDATA[WoltLab-ID]]></item>
 		<item name="wcf.acp.option.woltlab_interface_language_id_de"><![CDATA[ID der deutschen Sprache]]></item>
-		<item name="wcf.acp.option.woltlab_interface_language_id_de.description"><![CDATA[Geben Sie die sogenannte <code class="inlineCode">languageID</code> der deutschen Sprache von woltlab.com ein. Diese wird genutzt, um lokalisierte Namen für die abgeglichenen Produkte abzurufen.]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_de.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gib{else}Geben Sie{/if} die sogenannte <code class="inlineCode">languageID</code> der deutschen Sprache von woltlab.com ein. Diese wird genutzt, um lokalisierte Namen für die abgeglichenen Produkte abzurufen.]]></item>
 		<item name="wcf.acp.option.woltlab_interface_language_id_en"><![CDATA[ID der englischen Sprache]]></item>
-		<item name="wcf.acp.option.woltlab_interface_language_id_en.description"><![CDATA[Geben Sie die sogenannte <code class="inlineCode">languageID</code> der englischen Sprache von woltlab.com ein. Diese wird genutzt, um lokalisierte Namen für die abgeglichenen Produkte abzurufen.]]></item>
+		<item name="wcf.acp.option.woltlab_interface_language_id_en.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gib{else}Geben Sie{/if} die sogenannte <code class="inlineCode">languageID</code> der englischen Sprache von woltlab.com ein. Diese wird genutzt, um lokalisierte Namen für die abgeglichenen Produkte abzurufen.]]></item>
 		<item name="wcf.acp.option.woltlab_plugin_store_url_scheme"><![CDATA[Plugin–Store – URL–Schema]]></item>
 		<item name="wcf.acp.option.woltlab_vendor_id"><![CDATA[Vendor ID]]></item>
-		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Bitte geben Sie hier Ihre <code class="inlineCode">vendorID</code> ein, welche Sie im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Händler-Bereich</a> einsehen können.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_id.description"><![CDATA[Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}gib{else}geben Sie{/if} hier {if LANGUAGE_USE_INFORMAL_VARIANT}deine{else}Ihre{/if} <code class="inlineCode">vendorID</code> ein, die {if LANGUAGE_USE_INFORMAL_VARIANT}du{else}Sie{/if} im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Händler-Bereich</a> einsehen {if LANGUAGE_USE_INFORMAL_VARIANT}kannst{else}können{/if}.]]></item>
 		<item name="wcf.acp.option.woltlab_vendor_api_key"><![CDATA[Vendor API–Key]]></item>
-		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Bitte geben Sie hier Ihren <code class="inlineCode">apiKey</code> ein, welchen Sie im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Händler-Bereich</a> einsehen können.]]></item>
+		<item name="wcf.acp.option.woltlab_vendor_api_key.description"><![CDATA[Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}gib{else}geben Sie{/if} hier {if LANGUAGE_USE_INFORMAL_VARIANT}deinen{else}Ihren{/if} <code class="inlineCode">apiKey</code> ein, den {if LANGUAGE_USE_INFORMAL_VARIANT}du{else}Sie{/if} im <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://pluginstore.woltlab.com/vendor-transaction-list/"|rawurlencode}"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">Händler-Bereich</a> einsehen {if LANGUAGE_USE_INFORMAL_VARIANT}kannst{else}können{/if}.]]></item>
 	</category>
 	
 	<category name="wcf.global.form">
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey"><![CDATA[API-Key]]></item>
-		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description"><![CDATA[Bitte geben Sie Ihren <code class="inlineCode">API–Key</code> ein, welchen Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
+		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.apiKey.description"><![CDATA[Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}gib deinen{else}geben Sie Ihren{/if} <code class="inlineCode">API–Key</code> ein, den {if LANGUAGE_USE_INFORMAL_VARIANT}du{else}Sie{/if} unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen {if LANGUAGE_USE_INFORMAL_VARIANT}kannst{else}können{/if}.]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID"><![CDATA[WoltLab-ID]]></item>
-		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Bitte geben Sie Ihre <code class="inlineCode">WoltLab-ID</code> ein, welche Sie unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen können.]]></item>
+		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.description"><![CDATA[Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}gib deine{else}geben Sie Ihre{/if} <code class="inlineCode">WoltLab-ID</code> ein, die {if LANGUAGE_USE_INFORMAL_VARIANT}du{else}Sie{/if} unter <a href="https://www.woltlab.com/api-management/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">https://www.woltlab.com/api-management/</a> abrufen {if LANGUAGE_USE_INFORMAL_VARIANT}kannst{else}können{/if}.]]></item>
 		<item name="wcf.global.form.woltlabVendorCustomerAPI.customer.woltlabID.error.invalid"><![CDATA[Unter den angegeben Daten wurde kein Kundenkonto bei der WoltLab® GmbH gefunden.]]></item>
 	</category>
 	
@@ -35,16 +35,16 @@
 	<category name="wcf.woltlabapi"></category>
 	
 	<category name="wcf.woltlabapi.error">
-		<item name="wcf.woltlabapi.error.apiServerFailed"><![CDATA[Der API–Schnittstellen–Server der WoltLab® GmbH steht gegenwärtig nicht zur Verfügung. Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.]]></item>
+		<item name="wcf.woltlabapi.error.apiServerFailed"><![CDATA[Der API–Schnittstellen–Server der WoltLab® GmbH steht gegenwärtig nicht zur Verfügung. Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}versuchee es{else}versuchen Sie{/if} es zu einem späteren Zeitpunkt erneut.]]></item>
 	</category>
 	
 	<category name="wcf.woltlabapi.pluginstore">
 		<item name="wcf.woltlabapi.pluginstore.file.edit"><![CDATA[Eigenes Produkt bearbeiten]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.isDisabled"><![CDATA[Produkt deaktivieren]]></item>
-		<item name="wcf.woltlabapi.pluginstore.file.isDisabled.description"><![CDATA[Bitte beachten Sie, dass das Produkt durch Aktivierung dieser Option nicht im Plugin–Store deaktiviert wird.]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.isDisabled.description"><![CDATA[Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}beachte{else}beachten Sie{/if}, dass das Produkt durch Aktivierung dieser Option nicht im Plugin–Store deaktiviert wird.]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.lastNameUpdateTime"><![CDATA[Letzter Abgleich]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.link.showAtWoltLabPluginStore"><![CDATA[Im Plugin–Store aufrufen]]></item>
 		<item name="wcf.woltlabapi.pluginstore.file.name"><![CDATA[Name]]></item>
-		<item name="wcf.woltlabapi.pluginstore.file.name.description"><![CDATA[Geben Sie hier den Namen für das Produkt an. Bitte beachten Sie, dass dieser bei dem nächsten Abgleich mit dem Plugin–Store wieder überschrieben wird. Daher wird empfohlen, den Namen <a href="https://pluginstore.woltlab.com/file-edit/{$file->getObjectID()}/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">direkt im Plugin–Store zu ändern</a>.]]></item>
+		<item name="wcf.woltlabapi.pluginstore.file.name.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gib{else}Geben Sie{/if} hier den Namen für das Produkt an. Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}beachte{else}beachten Sie{/if}, dass dieser bei dem nächsten Abgleich mit dem Plugin–Store wieder überschrieben wird. Daher wird empfohlen, den Namen <a href="https://pluginstore.woltlab.com/file-edit/{$file->getObjectID()}/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} class="externalURL">direkt im Plugin–Store zu ändern</a>.]]></item>
 	</category>
 </language>
