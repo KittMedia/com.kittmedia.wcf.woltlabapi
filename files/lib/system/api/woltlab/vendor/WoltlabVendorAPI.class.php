@@ -1,5 +1,7 @@
 <?php
 namespace wcf\system\api\woltlab\vendor;
+use wcf\system\exception\HTTPServerErrorException;
+use wcf\system\exception\HTTPUnauthorizedException;
 use wcf\system\exception\SystemException;
 use wcf\system\io\RemoteFile;
 use wcf\system\SingletonFactory;
@@ -115,9 +117,21 @@ class WoltlabVendorAPI extends SingletonFactory {
 		], true);
 		
 		$reply = $this->getReplyAsArray();
-		if ($reply['status'] !== 200) {
-			$errorMessage = (isset($reply['errorMessage']) ? $reply['errorMessage'] : '');
-			throw new SystemException('Received status code '.$reply['status'].' from server'.($errorMessage ? ' with message: '.$errorMessage : '.'));
+		
+		switch ($reply['status']) {
+			case 200:
+				break;
+			case 401:
+			case 403:
+				throw new HTTPUnauthorizedException(
+					($reply['errorMessage'] ?? ''),
+					$reply['status']
+				);
+			default:
+				$errorMessage = (isset($reply['errorMessage']) ? $reply['errorMessage'] : '');
+				throw new HTTPServerErrorException(
+					'Received status code '.$reply['status'].' from server'.($errorMessage ? ' with message: '.$errorMessage : '.')
+				);
 		}
 		
 		// cache reply
@@ -147,9 +161,21 @@ class WoltlabVendorAPI extends SingletonFactory {
 		], true);
 		
 		$reply = $this->getReplyAsArray();
-		if ($reply['status'] !== 200) {
-			$errorMessage = (isset($reply['errorMessage']) ? $reply['errorMessage'] : '');
-			throw new SystemException('Received status code '.$reply['status'].' from server'.($errorMessage ? ' with message: '.$errorMessage : '.'));
+		
+		switch ($reply['status']) {
+			case 200:
+				break;
+			case 401:
+			case 403:
+				throw new HTTPUnauthorizedException(
+					($reply['errorMessage'] ?? ''),
+					$reply['status']
+				);
+			default:
+				$errorMessage = (isset($reply['errorMessage']) ? $reply['errorMessage'] : '');
+				throw new HTTPServerErrorException(
+					'Received status code '.$reply['status'].' from server'.($errorMessage ? ' with message: '.$errorMessage : '.')
+				);
 		}
 		
 		// cache reply
@@ -181,6 +207,8 @@ class WoltlabVendorAPI extends SingletonFactory {
 	 * @param	integer		$woltlabID
 	 * @param	string		$pluginStoreApiKey
 	 * @return	boolean
+	 * @throws	HTTPServerErrorException
+	 * @throws	HTTPUnauthorizedException
 	 */
 	public function isPurchasedPluginStoreProduct($pluginStoreFileID, $woltlabID, $pluginStoreApiKey) {
 		return in_array($pluginStoreFileID, $this->getPurchasedPluginStoreFileIDsByUser($woltlabID, $pluginStoreApiKey));
