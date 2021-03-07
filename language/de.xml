@@ -35,7 +35,7 @@
 	<category name="wcf.woltlabapi"></category>
 	
 	<category name="wcf.woltlabapi.error">
-		<item name="wcf.woltlabapi.error.apiServerFailed"><![CDATA[Der API–Schnittstellen–Server der WoltLab® GmbH steht gegenwärtig nicht zur Verfügung. Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}versuchee es{else}versuchen Sie{/if} es zu einem späteren Zeitpunkt erneut.]]></item>
+		<item name="wcf.woltlabapi.error.apiServerFailed"><![CDATA[Der API–Schnittstellen–Server der WoltLab® GmbH steht gegenwärtig nicht zur Verfügung. Bitte {if LANGUAGE_USE_INFORMAL_VARIANT}versuche es{else}versuchen Sie{/if} es zu einem späteren Zeitpunkt erneut.]]></item>
 	</category>
 	
 	<category name="wcf.woltlabapi.pluginstore">
