@@ -43,7 +43,7 @@
 							
 							<span class="icon icon16 fa-{if !$pluginstoreFile->isDisabled}check-square{else}square{/if}-o pointer jsTooltip jsToggleButton" data-object-id="{@$pluginstoreFile->getObjectID()}" title="{lang}wcf.global.button.{if $pluginstoreFile->isDisabled}enable{else}disable{/if}{/lang}"></span>
 							
-							<a href="{@$__wcf->getPath()}acp/dereferrer.php?url={@$pluginstoreFile->getPluginstoreLink()|rawurlencode}" class="jsTooltip"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} title="{lang}wcf.woltlabapi.pluginstore.file.link.showAtWoltLabPluginStore{/lang}">
+							<a href="{@$pluginstoreFile->getPluginstoreLink()}" class="jsTooltip"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if} title="{lang}wcf.woltlabapi.pluginstore.file.link.showAtWoltLabPluginStore{/lang}">
 								<span class="icon icon16 fa-globe"></span>
 							</a>
 							
