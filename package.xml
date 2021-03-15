@@ -3,8 +3,8 @@
 	<packageinformation>
 		<packagename>WoltLab Vendor API</packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
-		<version>2.2.0</version>
-		<date>2021-01-05</date>
+		<version>2.2.1</version>
+		<date>2021-03-15</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -39,7 +39,10 @@
 		<instruction type="file" />
 	</instructions>
 	
-	<instructions type="update" fromversion="2.2.0 Alpha 1">
+	<instructions type="update" fromversion="2.2.0">
+		<!-- configuration -->
+		<instruction type="language" />
+		
 		<!-- files -->
 		<instruction type="file" />
 	</instructions>
